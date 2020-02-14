@@ -5,32 +5,61 @@ var timecontainer = $('#timeblockspace');
 var currday = $('#currentDay');
 //Global reference variable of time displayed on the 
 var currtime = moment(). format('MM DD YYYY');
+// 
 var savenote = $('<#saveNote>');
-var task = $('.tasks');
+//Global variable that references the task textarea
+// var task = $('.tasks');
+//Global Variable that references the save buttons
 var save = $('.saveBtn');
-var agenda = [];
-var value = $(".textarea");
+//Empty array used to store user input
+var agenda = "";
+var value = $("");
+
+var note = $(localStorage.getItem(".tasks"));
+var key = $("<key>")
+console.log(note);
+
+save.textcontent = note;
+
+save.on("click" , function(e) {
+    note++;
+save.textcontent = note;
+
+localStorage.setItem(JSON.parse("key", note));
+localStorage.getItem(JSON.parse("key", note));
+});
 
 
 console.log(currtime);
 
 //Functions 
 $(currday).append ("Today's Date: " + "<br> "+ "<br>" + currtime);
-function display(){
-    task.text(localStorage.getItem("task"))
-}
-console.log(save);
+// function display(){
+//     task.text(localStorage.getItem("task"))
+// }
+// console.log(save);
 
-display();
-
+// display();
+// var arrayOfLines = $('#note').val().split('\n');
+// console.log(".note");
 
 //This allows the user to input tasks for each day of the week 
-
+// function getObject (key){
+//     var storage =window.localStorage;
+//     var value = storage.getItem(key);
+//     return value && JSON.parse(value);
+//     function clearStorage(){
+//         window.localStorage.clear;
+//     }
+// };
   
 
 //Event listeners 
 
-$(save).on("click" , function(e) {
-    e.preventDefault();
-    localStorage.setItem("task" , value.innerHTML);
-  });
+// save.on("click" , function(e) {
+//     e.preventDefault();
+    
+//         window.localStorage.setItem("task", agenda);
+//         save.text(localStorage.getItem("task"));
+    
+//   })
